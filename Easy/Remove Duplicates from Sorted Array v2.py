@@ -1,11 +1,18 @@
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        my_nums = list(set(nums))
-        my_nums.sort()
+        pointer_a = 0
+        pointer_b = 1
+        while pointer_b < len(nums):
+            if nums[pointer_b] != nums[pointer_a]:
+                pointer_a += 1
+                nums[pointer_a] = nums[pointer_b]
 
-        nums[:] = my_nums
+            pointer_b += 1
 
-        return len(my_nums)
+        nums[:] = nums[:pointer_a+1]
+
+        print(nums)
+        return pointer_a + 1
 
 s = Solution()
-print(s.removeDuplicates([1,1,2]))
+print(s.removeDuplicates([1,1,2,2,3,3,4,5,5]))
