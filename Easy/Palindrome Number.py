@@ -1,4 +1,4 @@
-class Solution:
+'''class Solution:
     def isPalindrome(self, x: int) -> bool:
          if x < 0:
              return False
@@ -19,3 +19,22 @@ class Solution:
 
 s = Solution()
 print(s.isPalindrome(124))
+'''
+
+#Оптимизация по алгоритму два указателя
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        s = str(x)
+        left = 0
+        right = len(s) - 1
+        final = False
+        while left < right:
+            if s[left] == s[right]:
+                final = True
+            else:
+                final = False
+
+        return final
+
+s = Solution()
+print(s.isPalindrome(x=121))
